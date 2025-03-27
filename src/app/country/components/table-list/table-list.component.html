@@ -3,24 +3,71 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>Ícono</th>
+        <th>Cod.</th>
         <th>Bandera</th>
+        <th>Escudo</th>
         <th>Nombre</th>
         <th>Capital</th>
         <th>Población</th>
-        <th></th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
+      @for (country of countries(); track country.cca2; let index = $index) {
       <tr>
-        <th>-</th>
-        <th>-</th>
-        <th>-</th>
-        <th>-</th>
-        <th>-</th>
-        <th>-</th>
-        <th>-</th>
+        <td>{{ index+1 }}</td>
+        <td>{{ country.flag }}</td>
+        <td><img [src]="country.flagSvg" [title]="country.name" [alt]="country.name" class="w-10"></td>
+        <td>
+          @if(country.escudoSvg){
+            <img [src]="country.escudoSvg" [title]="'Escudo: '+country.name" [alt]="country.name" class="w-10">
+          }@else{
+            <span class="text-red-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><circle cx="16.5" cy="7.5" r="1.5"/><path d="M2 14.135q1.001-.135 2.016-.132c2.856-.056 5.642.77 7.86 2.331c2.06 1.448 3.505 3.44 4.124 5.666m-2.5-4.5c1-1 1.677-1.223 2.5-1.5"/><path d="M20 20.213C18.601 21.5 16.363 21.5 12 21.5c-4.478 0-6.718 0-8.109-1.391S2.5 16.479 2.5 12c0-4.363 0-6.601 1.287-8M20 16c.543 0 1.048.294 1.397.564c.103-1.195.103-2.681.103-4.564c0-4.478 0-6.718-1.391-8.109S16.479 2.5 12 2.5c-2.41 0-4.17 0-5.5.217M2 2l20 20"/></g></svg>
+            </span>
+          }
+        </td>
+        <td>{{ country.name }}</td>
+        <td>{{ country.capital }}</td>
+        <td>
+          <span class="badge badge-info">
+            {{ country.population | number }}
+          </span>
+        </td>
+        <td>
+          <a
+            [routerLink]="['/country/by', country.cca2]"
+            class="link-primary cursor-pointer"
+            >Más información</a>
+        </td>
       </tr>
+      }
+
+      <!--  -->
+      @if (errorMessage()) {
+        <tr>
+          <td colspan="8" class="text-center text-red-500">
+            {{ errorMessage() }}
+          </td>
+        </tr>
+        }
+
+        <!--  -->
+        @if(countries().length === 0 && !isLoading() && !errorMessage()) {
+        <tr>
+          <td colspan="8" class="text-center text-orange-500">No se encontraron resultados</td>
+        </tr>
+        }
+
+        <!--  -->
+        @if (isLoading()) {
+        <tr>
+          <td colspan="8" class="text-center text-orange-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="10" height="10" x="1" y="1" fill="currentColor" rx="1"><animate id="svgSpinnersBlocksShuffle30" fill="freeze" attributeName="x" begin="0;svgSpinnersBlocksShuffle3b.end" dur="0.2s" values="1;13"/><animate id="svgSpinnersBlocksShuffle31" fill="freeze" attributeName="y" begin="svgSpinnersBlocksShuffle38.end" dur="0.2s" values="1;13"/><animate id="svgSpinnersBlocksShuffle32" fill="freeze" attributeName="x" begin="svgSpinnersBlocksShuffle39.end" dur="0.2s" values="13;1"/><animate id="svgSpinnersBlocksShuffle33" fill="freeze" attributeName="y" begin="svgSpinnersBlocksShuffle3a.end" dur="0.2s" values="13;1"/></rect><rect width="10" height="10" x="1" y="13" fill="currentColor" rx="1"><animate id="svgSpinnersBlocksShuffle34" fill="freeze" attributeName="y" begin="svgSpinnersBlocksShuffle30.end" dur="0.2s" values="13;1"/><animate id="svgSpinnersBlocksShuffle35" fill="freeze" attributeName="x" begin="svgSpinnersBlocksShuffle31.end" dur="0.2s" values="1;13"/><animate id="svgSpinnersBlocksShuffle36" fill="freeze" attributeName="y" begin="svgSpinnersBlocksShuffle32.end" dur="0.2s" values="1;13"/><animate id="svgSpinnersBlocksShuffle37" fill="freeze" attributeName="x" begin="svgSpinnersBlocksShuffle33.end" dur="0.2s" values="13;1"/></rect><rect width="10" height="10" x="13" y="13" fill="currentColor" rx="1"><animate id="svgSpinnersBlocksShuffle38" fill="freeze" attributeName="x" begin="svgSpinnersBlocksShuffle34.end" dur="0.2s" values="13;1"/><animate id="svgSpinnersBlocksShuffle39" fill="freeze" attributeName="y" begin="svgSpinnersBlocksShuffle35.end" dur="0.2s" values="13;1"/><animate id="svgSpinnersBlocksShuffle3a" fill="freeze" attributeName="x" begin="svgSpinnersBlocksShuffle36.end" dur="0.2s" values="1;13"/><animate id="svgSpinnersBlocksShuffle3b" fill="freeze" attributeName="y" begin="svgSpinnersBlocksShuffle37.end" dur="0.2s" values="1;13"/></rect></svg>
+          </td>
+        </tr>
+
+        }
     </tbody>
   </table>
 </section>

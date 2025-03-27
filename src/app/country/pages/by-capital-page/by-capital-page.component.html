@@ -1,3 +1,11 @@
-<coutry-search-input placeholder="Buscar por capital"/>
+<coutry-search-input
+  placeholder="Buscar por capital"
+  (value)="query.set($event)"
+/>
 
-<country-table-list />
+<country-table-list
+  [countries]="countryResources.value() ?? []"
+  [errorMessage]="countryResources.error()"
+  [isEmpty]="countryResources.value()?.length === 0"
+  [isLoading]="countryResources.isLoading()"
+  />
