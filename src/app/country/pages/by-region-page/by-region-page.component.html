@@ -1,2 +1,21 @@
-<coutry-search-input placeholder="Buscar por region"/>
-<country-table-list [countries]="countries()"/>
+<h1 class="text-2xl">Por región</h1>
+<h3 class="text-lg">Seleccione una región</h3>
+<section class="row mt-2">
+  <div class="flex-col">
+    @for (region of regions; track region) {
+      <button
+        (click)="query.set(region)"
+        [class.btn-primary]="query() == region"
+        class="btn mr-2 w-[100px] hover:btn-primary">
+        {{ region }}
+      </button>
+    }
+  </div>
+</section>
+
+<country-table-list
+  [countries]="countryResources.value() ?? []"
+  [errorMessage]="countryResources.error()"
+  [isEmpty]="countryResources.value()?.length === 0"
+  [isLoading]="countryResources.isLoading()"
+/>

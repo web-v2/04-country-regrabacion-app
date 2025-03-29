@@ -4,6 +4,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
 import { SearchInputComponent } from '../../components/search-input/search-input.component';
 import { TableListComponent } from '../../components/table-list/table-list.component';
 import { CountryService } from '../../services/country.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-by-capital-page',
@@ -12,7 +13,9 @@ import { CountryService } from '../../services/country.service';
 })
 export class ByCapitalPageComponent {
   private countryService = inject(CountryService);
+  public activatedRouter = inject(ActivatedRoute);
   public query = signal('');
+  //private queryParam = this.activatedRouter.snapshot.queryParamMap.get('query') ?? '';
 
   countryResources = rxResource({
     request: () => ({ query: this.query() }),

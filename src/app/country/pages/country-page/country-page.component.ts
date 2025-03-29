@@ -3,10 +3,12 @@ import { CountryService } from '../../services/country.service';
 import { ActivatedRoute } from '@angular/router';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { of } from 'rxjs';
+import { NotFoundComponent } from "../../../shared/components/not-found/not-found.component";
+import { CountryInformationComponent } from "./country-information/country-information.component";
 
 @Component({
   selector: 'app-country-page',
-  imports: [],
+  imports: [NotFoundComponent, CountryInformationComponent],
   templateUrl: './country-page.component.html',
 })
 export class CountryPageComponent {
@@ -14,7 +16,7 @@ export class CountryPageComponent {
   public countryCode = inject(ActivatedRoute).snapshot.params['code'];
 
   countryResources = rxResource({
-    request: () => ({ code: this.countryCode() }),
+    request: () => ({ code: this.countryCode }),
     loader: ({ request }) => {
       return this.countryService.searchCountryByAlphaCode(request.code);
     },

@@ -1,14 +1,35 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { SearchInputComponent } from '../../components/search-input/search-input.component';
+import { Component, inject, signal } from '@angular/core';
 import { TableListComponent } from '../../components/table-list/table-list.component';
 import type { Country } from '../../interfaces/country.interface';
+import { CountryService } from '../../services/country.service';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { of } from 'rxjs';
+import { Region } from '../../interfaces/region.type';
 
 @Component({
   selector: 'app-by-region-page',
-  imports: [SearchInputComponent, TableListComponent],
+  imports: [TableListComponent],
   templateUrl: './by-region-page.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ByRegionPageComponent {
+  private countryService = inject(CountryService);
   public countries = signal<Country[]>([]);
+  public regions: Region[] = [
+    'Africa',
+    'Americas',
+    'Asia',
+    'Europe',
+    'Oceania',
+    'Antarctic',
+  ];
+
+  public query = signal<Region | null>(null);
+
+  countryResources = rxResource({
+    request: () => ({ query: this.query() }),
+    loader: ({ request }) => {
+      if (!request.query) return of([]);
+      return this.countryService.searchByRegion(request.query);
+    },
+  });
 }
