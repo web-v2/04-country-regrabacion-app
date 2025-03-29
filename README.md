@@ -6,7 +6,7 @@
 This project was generated with Angular version 19.0.2
 
 <h2 align="center">
-:construction: Proyecto en v2.0 :construction:
+:construction: Proyecto en v1.0 :construction:
 </h2>
 
 ## App running - Netlify - Samir Vergara
