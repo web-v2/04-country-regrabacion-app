@@ -11,7 +11,7 @@ This project was generated with Angular version 19.0.2
 
 ## App running - Netlify - Samir Vergara
 
-https://angular19-bases-v2.netlify.app/#/dragonball-super
+https://app-country-v2.netlify.app/#/
 
 ## Development server 🚀
 
