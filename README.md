@@ -1,59 +1,89 @@
-# CountryApp
+<a href="https://angular.io/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/angularjs-colored.svg" width="200" height="200" alt="Angular" /></a>
+<a href="https://www.typescriptlang.org/" target="_blank"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/typescript-colored.svg" width="200" height="200" alt="TypeScript" /></a>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+# Country-App - Angular - SamirV2
 
-## Development server
+This project was generated with Angular version 19.0.2
 
-To start a local development server, run:
+<h2 align="center">
+:construction: Proyecto en v2.0 :construction:
+</h2>
 
-```bash
-ng serve
+## App running - Netlify - Samir Vergara
+
+https://angular19-bases-v2.netlify.app/#/dragonball-super
+
+## Development server 🚀
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Build 🚀
+
+Run `ng build --configuration=production` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Technologies
+
+---
+
+A list of technologies used within the project:
+
+- [Angular](https://angular.dev/): Version 18
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/): Version 5.0
+
+## Autores ✒️
+
+- **Samir Vergara V** - _Desarrollo_ - [web-v2](https://github.com/web-v2)
+
+### Desarrollado por
+
+```
+Samir Vergara V - Elaboración propia
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 📁 Acceso al proyecto ⌨️
 
-## Code scaffolding
+**Descarga o accede al código fuente del proyecto mediante el siguiente enlace:**
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+URL:[https://github.com/web-v2/04-country-regrabacion-app.git](https://github.com/web-v2/04-country-regrabacion-app.git)
 
-```bash
-ng generate component component-name
+### 🛠️ Abre y ejecuta el proyecto
+
+**Pasos para abrir y ejecutar el proyecto**
+
+1. Debes clonar el repositorio:
+
+```
+git clone https://github.com/web-v2/04-country-regrabacion-app.git
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. Acceder al repositorio:
 
-```bash
-ng generate --help
+```
+cd ../path/to/the/file
 ```
 
-## Building
+2. Instala dependencias:
 
-To build the project run:
-
-```bash
-ng build
+```
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+3. Lanza la aplicacion:
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+```
+ng serve -o
 ```
 
-## Running end-to-end tests
+## Licencia 📄
 
-For end-to-end (e2e) testing, run:
+Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
 
-```bash
-ng e2e
-```
+## Expresiones de Gratitud 🎁
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Comenta a otros sobre este proyecto 📢
+- Invita una cerveza 🍺 o un café ☕ a alguien del equipo.
+- Da las gracias públicamente 🤓.
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+⌨️ con ❤️ por [web-v2](https://github.com/web-v2) 😊
