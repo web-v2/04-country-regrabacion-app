@@ -17,13 +17,13 @@ export class ByCapitalPageComponent {
   public query = signal('');
   //private queryParam = this.activatedRouter.snapshot.queryParamMap.get('query') ?? '';
 
-  countryResources = rxResource({
+  countryResources: any = rxResource<any, any>({
     request: () => ({ query: this.query() }),
-    loader: ({ request }) => {
+    loader: ({ request }: any) => {
       if (!request.query) return of([]);
       return this.countryService.searchByCapital(request.query);
     },
-  });
+  } as any);
 
   /* countryResources = resource({
     request: () => ({ query: this.query() }),
