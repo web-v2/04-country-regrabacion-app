@@ -34,9 +34,11 @@ yarn-error.log
 /connect.lock
 /coverage
 /libpeerconnection.log
+.env
+/public/env.js
+
 testem.log
 /typings
 
-# System files
-.DS_Store
+# System files.DS_Store
 Thumbs.db
