@@ -22,7 +22,7 @@ export class ByCountryPageComponent {
 
   countryResources: any = rxResource<any, any>({
     request: () => ({ query: this.query() }),
-    loader: ({ request }: any) => {
+    stream: ({ request }: any) => {
       if (!request.query) return of([]);
       return this.countryService.searchByCountry(request.query);
     },

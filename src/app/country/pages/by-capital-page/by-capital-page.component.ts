@@ -19,7 +19,7 @@ export class ByCapitalPageComponent {
 
   countryResources: any = rxResource<any, any>({
     request: () => ({ query: this.query() }),
-    loader: ({ request }: any) => {
+    stream: ({ request }: any) => {
       if (!request.query) return of([]);
       return this.countryService.searchByCapital(request.query);
     },

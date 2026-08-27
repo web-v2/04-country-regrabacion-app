@@ -17,7 +17,7 @@ export class CountryPageComponent {
 
   countryResources: any = rxResource<any, any>({
     request: () => ({ code: this.countryCode }),
-    loader: ({ request }: any) => {
+    stream: ({ request }: any) => {
       return this.countryService.searchCountryByAlphaCode(request.code);
     },
   } as any);
