@@ -25,11 +25,11 @@ export class ByRegionPageComponent {
 
   public query = signal<Region | null>(null);
 
-  countryResources = rxResource({
+  countryResources: any = rxResource<any, any>({
     request: () => ({ query: this.query() }),
-    loader: ({ request }) => {
+    stream: ({ request }: any) => {
       if (!request.query) return of([]);
       return this.countryService.searchByRegion(request.query);
     },
-  });
+  } as any);
 }

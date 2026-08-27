@@ -20,13 +20,13 @@ export class ByCountryPageComponent {
   private countryService = inject(CountryService);
   public query = signal('');
 
-  countryResources = rxResource({
+  countryResources: any = rxResource<any, any>({
     request: () => ({ query: this.query() }),
-    loader: ({ request }) => {
+    stream: ({ request }: any) => {
       if (!request.query) return of([]);
       return this.countryService.searchByCountry(request.query);
     },
-  });
+  } as any);
 
   /* countryResources = resource({
     request: () => ({ query: this.query() }),

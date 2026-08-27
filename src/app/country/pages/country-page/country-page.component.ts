@@ -15,10 +15,10 @@ export class CountryPageComponent {
   private countryService = inject(CountryService);
   public countryCode = inject(ActivatedRoute).snapshot.params['code'];
 
-  countryResources = rxResource({
+  countryResources: any = rxResource<any, any>({
     request: () => ({ code: this.countryCode }),
-    loader: ({ request }) => {
+    stream: ({ request }: any) => {
       return this.countryService.searchCountryByAlphaCode(request.code);
     },
-  });
+  } as any);
 }
